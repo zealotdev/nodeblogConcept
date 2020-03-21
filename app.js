@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+app.get('/', (req, res) => {
+    res.send('Welcome home');
+});
+
 const server = mongoose.connect(
     'mongodb:localhost:27017/simpleblog',
     { useNewUrlParser: true, useUnifiedTopology: true },
