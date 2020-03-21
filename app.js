@@ -1,5 +1,8 @@
+const dotenv = require('dotenv');
 const express = require('express');
 const mongoose = require('mongoose');
+
+dotenv.config();
 
 const app = express();
 
@@ -8,7 +11,7 @@ app.get('/', (req, res) => {
 });
 
 const server = mongoose.connect(
-    'mongodb:localhost:27017/simpleblog',
+    process.env.DB_CONNECTION,
     { useNewUrlParser: true, useUnifiedTopology: true },
     () => {
         console.log('DB connected succesful');
